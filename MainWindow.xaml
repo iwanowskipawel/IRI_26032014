@@ -1,0 +1,130 @@
+﻿<Window x:Class="IRI_konwerter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Konwerter IRI" Height="624" Width="820" MinHeight="550" MinWidth="820">
+    <DockPanel LastChildFill="True">
+        <DockPanel.Resources>
+            <Style x:Key="dockStyle">
+                <Setter Property="DockPanel.Height" Value="25"/>
+                <Setter Property="DockPanel.Dock" Value="Top"/>
+                <Setter Property="DockPanel.LastChildFill" Value="True"/>
+            </Style>
+            <Style x:Key="textBlockStyle">
+                <Setter Property="TextBlock.Width" Value="100"/>
+                <Setter Property="TextBlock.TextAlignment" Value="Right"/>
+                <Setter Property="TextBlock.Margin" Value="10,6,10,5"/>
+                <Setter Property="TextBlock.FontSize" Value="10"/>
+            </Style>
+            <Style x:Key="textBoxStyle">
+                <Setter Property="TextBox.FontSize" Value="10"/>
+                <Setter Property="TextBox.Margin" Value="0,1,10,1"/>
+                <Setter Property="TextBox.IsReadOnly" Value="False"/>
+                <Setter Property="TextBox.TextWrapping" Value="Wrap"/>
+            </Style>
+        </DockPanel.Resources>
+        <TextBox DockPanel.Dock="Bottom" BorderThickness="0" FontFamily="Verdana" FontSize="8" FontStyle="Italic" TextAlignment="Center" IsReadOnly="True">Wykonał mgr inż. Paweł Iwanowski</TextBox>
+        <Separator DockPanel.Dock="Bottom"></Separator>
+        <DockPanel LastChildFill="True">
+            <DockPanel Width="500" LastChildFill="False">
+                <DockPanel Height="50" DockPanel.Dock="Top" LastChildFill="True">
+                <Button Name="button_plikZrodlowy" Width="100" Margin="10,10,10,10" DockPanel.Dock="Left" ToolTip="Dodaj pliki do przekonwertowania" Click="button_plikZrodlowy_Click">Plik</Button>
+                <TextBox Name="textBox_sciezkaIRI" Margin="0,10,10,10" IsReadOnly="True"></TextBox>
+                </DockPanel>
+                <DockPanel Height="50" DockPanel.Dock="Top" LastChildFill="True">
+                    <Button Name="button_labownik" Width="100" Margin="10,10,10,10" DockPanel.Dock="Left" ToolTip="Dodaj pliki z rejestracją próbek" Click="button_labownik_Click">Labownik</Button>
+                    <TextBox Name="textBox_sciezkaLab" Margin="0,10,10,10" IsReadOnly="True"></TextBox>
+                </DockPanel>
+                <GroupBox Margin="10,0,10,0" DockPanel.Dock="Top" Header="Dane Próbki">
+                    <DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                <TextBlock Style="{StaticResource textBlockStyle}">Data:</TextBlock>
+                <TextBox x:Name="dataTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}">Zleceniodawca:</TextBlock>
+                    <TextBox x:Name="zleceniodawcaTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}">Nr Zlecenia:</TextBlock>
+                    <TextBox x:Name="nrZleceniaTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}">Budowa / Droga:</TextBlock>
+                    <TextBox x:Name="budowaDrogaTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}">Odcinek / Etap:</TextBlock>
+                    <TextBox x:Name="odcinekEtapBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}">Nr próbki wg T.1:</TextBlock>
+                    <TextBox x:Name="nrProbkiT1TextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}">Nr próbki wg Klienta:</TextBlock>
+                    <TextBox x:Name="nrProbkiKlientTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}">Wymagania wg:</TextBlock>
+                    <TextBox x:Name="wymaganiaWgTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}">Wymagania:</TextBlock>
+                    <TextBox x:Name="wymaganiaTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}">Miejsce pomiaru:</TextBlock>
+                    <TextBox x:Name="miejscePomiaruTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}">Warstwa:</TextBlock>
+                    <TextBox x:Name="warstwaTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}">Data pomiaru:</TextBlock>
+                    <TextBox x:Name="dataPomiaruTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                    </DockPanel>
+                    </DockPanel>
+                </GroupBox>
+                <GroupBox DockPanel.Dock="Top" Header="Konwertowanie" Margin="10,0,10,10">
+                    <DockPanel>
+                        <DockPanel Height="30" DockPanel.Dock="Top" LastChildFill="True">
+                            <TextBlock Width="170" Margin="10,5,10,5" DockPanel.Dock="Left" TextAlignment="Right">Kilometr początkowy pomiaru:</TextBlock>
+                            <TextBox x:Name="kilometrPoczatkowyTextBox" Margin="0,5,10,5" IsReadOnly="False"></TextBox>
+                        </DockPanel>
+                        <DockPanel Height="30" DockPanel.Dock="Top" LastChildFill="True">
+                            <TextBlock Width="170" Margin="10,5,10,5" DockPanel.Dock="Left" TextAlignment="Right">Zapisz nowy plik pod nazwą:</TextBlock>
+                            <TextBox x:Name="nazwaPlikuTextBox" Margin="0,5,10,5" IsReadOnly="False"></TextBox>
+                        </DockPanel>
+                        <Button x:Name="konwertujButton" VerticalAlignment="Top" Margin="120,5,120,5" Click="Button_Click" Content="Konwertuj">
+                </Button>
+                    </DockPanel>
+                </GroupBox>
+            </DockPanel>
+            <GroupBox Header="informacje dodatkowe" Margin="10,0,10,10" DockPanel.Dock="Top">
+                <DockPanel>
+                <DockPanel Height="40" Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}" TextWrapping="Wrap">Rodzaj konstrukcji nawierzchni:</TextBlock>
+                    <TextBox x:Name="rodzajWarstwyTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource dockStyle}">
+                    <TextBlock Style="{StaticResource textBlockStyle}" TextWrapping="Wrap">nr jezdni:</TextBlock>
+                    <TextBox x:Name="nrJezdniTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                    </DockPanel>
+                    <DockPanel Style="{StaticResource dockStyle}">
+                        <TextBlock Style="{StaticResource textBlockStyle}" TextWrapping="Wrap">pas ruchu:</TextBlock>
+                        <TextBox x:Name="pasRuchuTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                    </DockPanel>
+                    <DockPanel Style="{StaticResource dockStyle}">
+                        <TextBlock Style="{StaticResource textBlockStyle}" TextWrapping="Wrap">rodzaj pasa / nr pasa:</TextBlock>
+                        <TextBox x:Name="rodzajNrPasaTextBox" Style="{StaticResource textBoxStyle}"></TextBox>
+                    </DockPanel>
+                </DockPanel>
+            </GroupBox>
+            <DockPanel DockPanel.Dock="Right" LastChildFill="True">
+            <TextBlock DockPanel.Dock="top" Margin="10,10,10,10" TextAlignment="Center">Info:</TextBlock>
+                <TextBox x:Name="TextBoxInfo" Margin="10,0,10,10"></TextBox>
+            </DockPanel>
+        </DockPanel>
+    </DockPanel>
+</Window>
